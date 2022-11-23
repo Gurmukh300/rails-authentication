@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+
+      <%= yield %>
+
+      <% if user_signed_in? %>
+        <h3>Welcome  <%=current_user.first_name %></h3>
+      <% end %>
+    </div>
   </body>
 </html>
